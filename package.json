@@ -1,0 +1,30 @@
+{
+  "name": "clientdatacollector",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DVo-MidwayUSA/ClientDataCollector.git"
+  },
+  "author": "dvo@midwayusa.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DVo-MidwayUSA/ClientDataCollector/issues"
+  },
+  "homepage": "https://github.com/DVo-MidwayUSA/ClientDataCollector#readme",
+  "devDependencies": {
+    "browserify": "^14.4.0",
+    "del": "^3.0.0",
+    "eslint": "^4.1.1",
+    "eslint-config-google": "^0.8.0",
+    "gulp": "^3.9.1",
+    "gulp-uglify": "^3.0.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "wallabify": "0.0.15"
+  }
+}
