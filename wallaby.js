@@ -3,7 +3,7 @@
 const wallabify = require('wallabify');
 const wallabyPostprocessor = wallabify({});
 
-module.exports = () => {
+module.exports = (wallaby) => {
     const config = {
         files: [
             {pattern: 'src/*.js', load: false},
@@ -11,8 +11,10 @@ module.exports = () => {
         tests: [
             {pattern: 'test/**/*.js', load: false},
         ],
-        testFramework: 'jasmine',
-        postProcessor: wallabyPostprocessor,
+        compilers: {
+            '**/*.js': wallaby.compilers.babel(),
+        },
+        postprocessor: wallabyPostprocessor,
         setup: () => {
             window.__moduleBundler.loadTests();
         },

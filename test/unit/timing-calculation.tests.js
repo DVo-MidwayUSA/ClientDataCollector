@@ -1,14 +1,14 @@
 'use strict';
 
-const NavTimingCollector = require('../../src/nav-timing-collector');
-const PerformanceTimingWrapper = require('../../src/performance-timing-wrapper');
+import NavTimingCollector from '../../src/nav-timing-collector';
+import PerformanceTimingWrapper from '../../src/performance-timing-wrapper';
 
 describe('Timing Calculation Tests', () => {
     let sut;
     let result;
 
     let arrange = (callback) => {
-        var timings = new PerformanceTimingWrapper(jasmine.any(Object));
+        let timings = new PerformanceTimingWrapper(jasmine.any(Object));
 
         callback({
             connectEndSpy: spyOn(timings, 'connectEnd'),

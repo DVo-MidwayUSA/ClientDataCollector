@@ -1,6 +1,6 @@
 'use strict';
 
-const PerformanceTimingWrapper = require('../../src/performance-timing-wrapper');
+import PerformanceTimingWrapper from '../../src/performance-timing-wrapper';
 
 describe('Performance Timing Wrapper Tests', () => {
     let sut;
