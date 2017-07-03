@@ -3,5 +3,5 @@
 const gulp = require('gulp');
 
 module.exports = () => {
-    gulp.watch('./src/*.*', ['broswerify']);
+    gulp.watch('./src/*.*', ['build']);
 };

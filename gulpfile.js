@@ -2,8 +2,8 @@
 
 let tasks = [
     'build',
+    'clean',
     'watch',
 ];
 
-const gulp = require('./gulp')(tasks);
-gulp.task('default', ['build', 'watch']);
+require('./gulp')(tasks);

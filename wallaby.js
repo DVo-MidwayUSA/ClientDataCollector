@@ -10,6 +10,7 @@ module.exports = (wallaby) => {
         ],
         tests: [
             {pattern: 'test/**/*.js', load: false},
+            {pattern: 'test/**/**/*.js', load: false},
         ],
         compilers: {
             '**/*.js': wallaby.compilers.babel(),
