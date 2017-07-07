@@ -20,8 +20,11 @@ export default class NavTimingCollector {
             pageComplete: this.timings.loadEventEnd() - navigationStart,
             connectionEnd: this.timings.connectEnd() - navigationStart,
             connectionStart: this.timings.connectStart() - navigationStart,
-            secureConnectionStart: this.timings.secureConnectionStart() - navigationStart,
         };
+
+        if (this.timings.secureConnectionStart()) {
+            calculatedTimings.secureConnectionStart = this.timings.secureConnectionStart() - navigationStart;
+        }
 
         return calculatedTimings;
     }

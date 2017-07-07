@@ -188,6 +188,20 @@ describe('Timing Calculation Tests', () => {
         expect(result.secureConnectionStart).toBe(secureConnectionStartValue - navigationStartValue);
     });
 
+    it('Should not return Secure Connect Start time if "Secure Connection Start" is not available', () => {
+        let secureConnectionStartValue = undefined;
+        let navigationStartValue = 1;
+
+        arrange((timings) => {
+            timings.secureConnectionStartSpy.and.returnValue(secureConnectionStartValue);
+            timings.navigationStartSpy.and.returnValue(navigationStartValue);
+        });
+
+        act();
+
+        expect(result.secureConnectionStart).toBe(undefined);
+    });
+
     it('Should determine DOM Interactive time by substracting "DOM Interactive" from "DOM Loading" timings', () => {
         let domInteractiveValue = 2;
         let domLoadingValue = 1;
