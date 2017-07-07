@@ -17,6 +17,7 @@ describe('Timing Calculation Tests', () => {
             domContentLoadedEventStartSpy: spyOn(timings, 'domContentLoadedEventStart'),
             domContentLoadedEventEndSpy: spyOn(timings, 'domContentLoadedEventEnd'),
             domLoadingSpy: spyOn(timings, 'domLoading'),
+            domInteractiveSpy: spyOn(timings, 'domInteractive'),
             domainLookupStartSpy: spyOn(timings, 'domainLookupStart'),
             fetchStartSpy: spyOn(timings, 'fetchStart'),
             loadEventEndSpy: spyOn(timings, 'loadEventEnd'),
@@ -181,5 +182,23 @@ describe('Timing Calculation Tests', () => {
             timings.secureConnectionStartSpy.and.returnValue(secureConnectionStartValue);
             timings.navigationStartSpy.and.returnValue(navigationStartValue);
         });
+
+        act();
+
+        expect(result.secureConnectionStart).toBe(secureConnectionStartValue - navigationStartValue);
+    });
+
+    it('Should determine DOM Interactive time by substracting "DOM Interactive" from "DOM Loading" timings', () => {
+        let domInteractiveValue = 2;
+        let domLoadingValue = 1;
+
+        arrange((timings) => {
+            timings.domInteractiveSpy.and.returnValue(domInteractiveValue);
+            timings.domLoadingSpy.and.returnValue(domLoadingValue);
+        });
+
+        act();
+
+        expect(result.domInteractive).toBe(domInteractiveValue - domLoadingValue);
     });
 });
