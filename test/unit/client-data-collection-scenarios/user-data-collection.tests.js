@@ -8,13 +8,18 @@ describe('Client Data Collection Tests', () => {
 
     it('Should get account number from universal variable user id', () => {
         // Arrange
-        let universalVariable = {};
+        let universalVariable = {
+            user: {
+                user_id: 'id',
+            },
+        };
+
         sut = new ClientDataCollector(universalVariable);
 
         // Act
         result = sut.getUserData();
 
         // Assert
-        expect(result).toBe({a: universalVariable.user.user_id});
+        expect(result).toEqual({a: universalVariable.user.user_id});
     });
 });
